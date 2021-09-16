@@ -567,39 +567,93 @@
 // mostrar(resultado);
 
 
-alert("listado de suscripciones  y precios:\n diario digital $100 mensuales (sin iva incluido)\n diario digital + club gol $150 mensuales (sin iva incluido)\n diario digital + club gol + diario del domingo $200 (sin iva incluido)");
+// alert("listado de suscripciones  y precios:\n diario digital $100 mensuales (sin iva incluido)\n diario digital + club gol $150 mensuales (sin iva incluido)\n diario digital + club gol + diario del domingo $200 (sin iva incluido)");
 
-let planNombre = prompt("esriba el nombre del plan al que desea suscribirse");
-let planCoste ;
-let mesesCantidad = parseInt (prompt("escriba los meses que desea suscribirse a nuestro plan"));
-let costoFinal ;
+// let planNombre = prompt("esriba el nombre del plan al que desea suscribirse");
+// let planCoste ;
+// let mesesCantidad = parseInt (prompt("escriba los meses que desea suscribirse a nuestro plan"));
+// let costoFinal ;
 
-function suscripcion(plan, meses){
-    costoFinal = (plan * meses) + ((plan * 0.21) * meses);
-}
+// function suscripcion(plan, meses){
+//     costoFinal = (plan * meses) + ((plan * 0.21) * meses);
+// }
 
 
-while ((planNombre != "") && (mesesCantidad != 0)) {
-    if (planNombre == "diario digital") {
-        planCoste = 100;
-        suscripcion(planCoste, mesesCantidad);
-        alert("Se suscribrio a el plan " + planNombre + " por " + mesesCantidad + " meses. El costo final del servicio con iva incluido es de " + costoFinal + " pesos.");
-    }
+// while ((planNombre != "") && (mesesCantidad != 0)) {
+//     if (planNombre == "diario digital") {
+//         planCoste = 100;
+//         suscripcion(planCoste, mesesCantidad);
+//         alert("Se suscribrio a el plan " + planNombre + " por " + mesesCantidad + " meses. El costo final del servicio con iva incluido es de " + costoFinal + " pesos.");
+//     }
     
-    else if(planNombre == "club gol") {
-        planCoste = 150; 
-        suscripcion(planCoste, mesesCantidad);
-        alert("Se suscribrio a el plan " + planNombre + " por " + mesesCantidad + " meses. El costo final del servicio con iva incluido es de " + costoFinal + " pesos.");
+//     else if(planNombre == "club gol") {
+//         planCoste = 150; 
+//         suscripcion(planCoste, mesesCantidad);
+//         alert("Se suscribrio a el plan " + planNombre + " por " + mesesCantidad + " meses. El costo final del servicio con iva incluido es de " + costoFinal + " pesos.");
+//     }
+
+//     else if(planNombre == "diario del domingo") {
+//         planCoste = 200; 
+//         suscripcion(planCoste, mesesCantidad);
+//         alert("Se suscribrio a el plan " + planNombre + " por " + mesesCantidad + " meses. El costo final del servicio con iva incluido es de " + costoFinal + " pesos.");
+//     }
+
+//     else {
+//         alert("debe ingresar un nombre de plan válido o un número de meses distinto de 0")
+//     }   
+// }
+ 
+
+// function receta(harina, azucar, leche){
+//     this.harina = harina;
+//     this.azucar = azucar;
+//     this.leche = leche;
+// }
+
+// const torta = new receta("2kg", "200gr", "230ml");
+
+// console.log(torta)
+
+let selectPlan;
+let cantidadDeMeses;
+let costoFinal;
+
+alert("Esta es una lista con nuestros planes. \nDiario Digital\nPrecio mensual: $100\nBeneficios:\n1- Acceso a todo el contenido digital del diario  \nClub Gol\nPrecio mensual: $150\nBeneficios:\n1- Acceso a todo el contenido digital del dirario \n2- Tarjeta del Club Gol con descuentos en productos y servicios \nDiario del Domingo\nPrecio mensual: $200\nBeneficios:\n1- Acceso a todo el contenido digital del dirario\n2- Tarjeta del Club Gol con descuentos en productos y servicios \n3- Entrega del Diario del Domingo en tu casa");
+selectPlan = prompt("Ingrese el plan al que desee suscribirse. Planes: \ndiario digital \nclub gol \ndiario del domingo");
+selectPlan = selectPlan.toLowerCase();
+cantidadDeMeses = prompt("Ingrese el número de meses a las cuales desea suscribirse");
+
+class DiarioSuscripciones{
+    constructor(Nombre, Precio, Beneficios){
+        this.Nombre = Nombre;   
+        this.Precio = Precio;
+        this.Beneficios = Beneficios;
     }
 
-    else if(planNombre == "diario del domingo") {
-        planCoste = 200; 
-        suscripcion(planCoste, mesesCantidad);
-        alert("Se suscribrio a el plan " + planNombre + " por " + mesesCantidad + " meses. El costo final del servicio con iva incluido es de " + costoFinal + " pesos.");
+    suscribirse(selectPlan) {
+        switch (selectPlan) {
+            case ("diario digital"):
+                costoFinal = 100 * cantidadDeMeses;
+                return "Usted se suscribio al plan Diario Digital por " + cantidadDeMeses + " meses." + " El costo final de su suscripcion es de: $" + costoFinal;
+            case ("club gol"):
+                costoFinal = 150 * cantidadDeMeses;
+                return "Usted se suscribio al plan Club Gol por " + cantidadDeMeses + " meses." + " El costo final de su suscripcion es de: $" + costoFinal;
+            case ("diario del domingo"):
+                costoFinal = 200 * cantidadDeMeses;
+                return "Usted se suscribio al plan Diario del Domingo por " + cantidadDeMeses + " meses." + " El costo final de su suscripcion es de: $" + costoFinal;
+        }
     }
-
-    else {
-        alert("debe ingresar un nombre de plan válido o un número de meses distinto de 0")
-    }   
 }
+
+
+const diarioDigital = new DiarioSuscripciones("Diario Digital","$100 Mensuales","Acceso a todo el contenido digital del diario");
+const clubGol = new DiarioSuscripciones("Club Gol", "$150 Mensuales","1-Acceso a todo el contenido digital del dirario 2-Tarjeta del Club Gol con descuentos en productos y servicios");
+const diarioDomingo = new DiarioSuscripciones("Diario de Domingo","$200 Mensuales","1-Acceso a todo el contenido digital del dirario 2-Tarjeta del Club Gol con descuentos en productos y servicios -3 Entrega del Diario del Domingo en tu casa");
+
+console.log("A continuacion le dejamos nuestro planes detallados por si quiere verlos nuevamente")
+console.log(diarioDigital);
+console.log(clubGol);
+console.log(diarioDomingo); 
+console.log(diarioDigital.suscribirse(selectPlan));
+alert("En la consola podra ver su suscripción");
 

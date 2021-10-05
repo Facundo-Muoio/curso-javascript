@@ -681,113 +681,161 @@
 // const aumentos = productos.map(producto => producto.precio += 20 * 2);
 // console.log(aumentos);
 
-let opcionSecundaria;
+// let opcionSecundaria;
 
-class Productos{
-    constructor(id,marca,nombre,precio){
-        this.id = id;
-        this.marca = marca;
-        this.nombre = nombre;
-        this.precio = precio; 
-    }
-}
+// class Productos{
+//     constructor(id,marca,nombre,precio){
+//         this.id = id;
+//         this.marca = marca;
+//         this.nombre = nombre;
+//         this.precio = precio; 
+//     }
+// }
 
-const teclado1 = new Productos(01254,"HyperX","Alloy Core RGB",4495);
-const teclado2 = new Productos(45641,"HyperX","Alloy FPS Pro Mecanico Eng Switch Red",8490);
-const teclado3 = new Productos(56441,"HyperX","Alloy Elite 2 RBG Red",13799);
+// const teclado1 = new Productos(01254,"HyperX","Alloy Core RGB",4495);
+// const teclado2 = new Productos(45641,"HyperX","Alloy FPS Pro Mecanico Eng Switch Red",8490);
+// const teclado3 = new Productos(56441,"HyperX","Alloy Elite 2 RBG Red",13799);
 
-const teclado4 = new Productos(46529,"Logitech","G G213 Retroiluminado Multimedia",6790);
-const teclado5 = new Productos(32529,"Logitech","G PRO KDA RGB",11990);
-const teclado6 = new Productos(82129,"Logitech","G 915 RGB lightspeed",23490);
+// const teclado4 = new Productos(46529,"Logitech","G G213 Retroiluminado Multimedia",6790);
+// const teclado5 = new Productos(32529,"Logitech","G PRO KDA RGB",11990);
+// const teclado6 = new Productos(82129,"Logitech","G 915 RGB lightspeed",23490);
 
-const teclado7 = new Productos(26529,"Corsair","K55 RGB",7990);
-const teclado8 = new Productos(32529,"Corsair","K57 RGB WIRELESS",12990);
-const teclado9 = new Productos(82129,"Corsair","K70 RGB MK.2 Cherry MX-red",19890);
+// const teclado7 = new Productos(26529,"Corsair","K55 RGB",7990);
+// const teclado8 = new Productos(32529,"Corsair","K57 RGB WIRELESS",12990);
+// const teclado9 = new Productos(82129,"Corsair","K70 RGB MK.2 Cherry MX-red",19890);
 
-const teclados = [teclado1,teclado2,teclado3,teclado4,teclado5,teclado6,teclado7,teclado8,teclado9];
-console.log("Productos filtrados que conservan su precio sin descuentos:");
+// const teclados = [teclado1,teclado2,teclado3,teclado4,teclado5,teclado6,teclado7,teclado8,teclado9];
+// console.log("Productos filtrados que conservan su precio sin descuentos:");
 
-let opcion = parseInt(prompt("Puedo filtrar nuestro productos según su precio o marca, eliga la opcion que desee escribiendo el número de la misma.\n1-Precio\n2-marca"));
-while (opcion < 1 || opcion > 2){
-    alert("la opcion que usted esta ingresando no existe.")
-    opcion = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma.\n1-Precio\n2-marca"))
-} if (opcion === 1){
-    opcionSecundaria = parseInt(prompt("usted puede filtrar los productos por los siguientes rangos de precios\n1-Menores a $8000\n2-Mayores a $8000\n3-Mayores $13000"));
-    while (opcionSecundaria < 1 || opcionSecundaria > 3){
-        alert("la opcion que usted esta ingresando no existe.")
-        opcionSecundaria = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma\n1-Menores a $8000\n2-Mayores a $8000\n3-Mayores $13000"))
-    }
-    switch(opcionSecundaria){
-        case 1:
-            const tecladosBaratos = teclados.filter(teclado => teclado.precio < 8000);
-            console.log(tecladosBaratos);
-            break;
+// let opcion = parseInt(prompt("Puedo filtrar nuestro productos según su precio o marca, eliga la opcion que desee escribiendo el número de la misma.\n1-Precio\n2-marca"));
+// while (opcion < 1 || opcion > 2){
+//     alert("la opcion que usted esta ingresando no existe.")
+//     opcion = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma.\n1-Precio\n2-marca"))
+// } if (opcion === 1){
+//     opcionSecundaria = parseInt(prompt("usted puede filtrar los productos por los siguientes rangos de precios\n1-Menores a $8000\n2-Mayores a $8000\n3-Mayores $13000"));
+//     while (opcionSecundaria < 1 || opcionSecundaria > 3){
+//         alert("la opcion que usted esta ingresando no existe.")
+//         opcionSecundaria = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma\n1-Menores a $8000\n2-Mayores a $8000\n3-Mayores $13000"))
+//     }
+//     switch(opcionSecundaria){
+//         case 1:
+//             const tecladosBaratos = teclados.filter(teclado => teclado.precio < 8000);
+//             console.log(tecladosBaratos);
+//             break;
         
-        case 2:
-            const tecladosGamaMedia = teclados.filter(teclado => teclado.precio > 8000);
-            console.log(tecladosGamaMedia);
-            break;
+//         case 2:
+//             const tecladosGamaMedia = teclados.filter(teclado => teclado.precio > 8000);
+//             console.log(tecladosGamaMedia);
+//             break;
 
-        case 3:
-            const tecladosCaros = teclados.filter(teclado => teclado.precio > 13000);
-            console.log(tecladosCaros);
-            break;
-    }
-} else if(opcion === 2){
-    let opcionSecundaria = parseInt(prompt("Ingrese el número de opción para seleccionar productos según su marca\n1-HyperX\n2-Logitech\n3-Corsair"));
-    while (opcionSecundaria < 1 || opcionSecundaria > 3){
-        alert("la opcion que usted esta ingresando no existe.")
-        opcionSecundaria = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma\n1-HyperX\n2-Logitech\n3-Corsair"))
-    }
-    switch(opcionSecundaria){
-        case 1:
-            const filter1 = teclados.filter(marca => marca.marca === "HyperX");
-            console.log(filter1);
-            break;
+//         case 3:
+//             const tecladosCaros = teclados.filter(teclado => teclado.precio > 13000);
+//             console.log(tecladosCaros);
+//             break;
+//     }
+// } else if(opcion === 2){
+//     let opcionSecundaria = parseInt(prompt("Ingrese el número de opción para seleccionar productos según su marca\n1-HyperX\n2-Logitech\n3-Corsair"));
+//     while (opcionSecundaria < 1 || opcionSecundaria > 3){
+//         alert("la opcion que usted esta ingresando no existe.")
+//         opcionSecundaria = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma\n1-HyperX\n2-Logitech\n3-Corsair"))
+//     }
+//     switch(opcionSecundaria){
+//         case 1:
+//             const filter1 = teclados.filter(marca => marca.marca === "HyperX");
+//             console.log(filter1);
+//             break;
         
-        case 2:
-            const filter2 = teclados.filter(marca => marca.marca === "Logitech");
-            console.log(filter2);
-            break;
+//         case 2:
+//             const filter2 = teclados.filter(marca => marca.marca === "Logitech");
+//             console.log(filter2);
+//             break;
 
-        case 3:
-            const filter3 = teclados.filter(marca => marca.marca === "Corsair");
-            console.log(filter3);
-            break;
-    }
+//         case 3:
+//             const filter3 = teclados.filter(marca => marca.marca === "Corsair");
+//             console.log(filter3);
+//             break;
+//     }
+// }
+
+// let comprar = parseInt(prompt("Ahora que estuvo viendo nuestros productos puede acceder a los mismos con el descuentro de nuestro hotsale.\n1-Si quiere acceder al catalogo con los descuestos del hotsale\n2-Sino quiere comprar nada"));
+// while (comprar < 1 || comprar > 2){
+//     alert("la opcion que usted esta ingresando no existe.")
+//     opcionSecundaria = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma\n1-Si quiere acceder al catalogo con los descuestos del hotsale\n2-Sino quiere comprar nada"))
+// }
+// if (comprar === 1){
+//     const tecladoD1 = new Productos(01254,"HyperX","Alloy Core RGB",4495);
+//     const tecladoD2 = new Productos(45641,"HyperX","Alloy FPS Pro Mecanico Eng Switch Red",8490);
+//     const tecladoD3 = new Productos(56441,"HyperX","Alloy Elite 2 RBG Red",13799);
+
+//     const tecladoD4 = new Productos(46529,"Logitech","G G213 Retroiluminado Multimedia",6790);
+//     const tecladoD5 = new Productos(32529,"Logitech","G PRO KDA RGB",11990);
+//     const tecladoD6 = new Productos(82129,"Logitech","G 915 RGB lightspeed",23490);
+
+//     const tecladoD7 = new Productos(26529,"Corsair","K55 RGB",7990);
+//     const tecladoD8 = new Productos(32529,"Corsair","K57 RGB WIRELESS",12990);
+//     const tecladoD9 = new Productos(82129,"Corsair","K70 RGB MK.2 Cherry MX-red",19890);
+
+//     let tecladoDescuento = [tecladoD1,tecladoD2,tecladoD3,tecladoD4,tecladoD5,tecladoD6,tecladoD7,tecladoD8,tecladoD9]
+//     let descuento = tecladoDescuento.map(producto => producto.precio - (producto.precio * 0.25));
+//     tecladoDescuento[0]["precio"] = descuento[0];
+//     tecladoDescuento[1]["precio"] = descuento[1];
+//     tecladoDescuento[2]["precio"] = descuento[2];
+//     tecladoDescuento[3]["precio"] = descuento[3];
+//     tecladoDescuento[4]["precio"] = descuento[4];
+//     tecladoDescuento[5]["precio"] = descuento[5];
+//     tecladoDescuento[6]["precio"] = descuento[6];
+//     tecladoDescuento[7]["precio"] = descuento[7];
+//     tecladoDescuento[8]["precio"] = descuento[8];
+//     console.log("Productos con descuento del % 25 del hotsale:")
+//     console.log(tecladoDescuento);
+// }else{
+//     alert("Gracias por visitar nuestra tienda, Vuelva pronto");
+// }
+
+
+
+// localStorage.clear()
+// const productos = [{ id: 1,  producto: "Arroz", precio: 125 },
+//                   {  id: 2,  producto: "Fideo", precio: 70 },
+//                   {  id: 3,  producto: "Pan"  , precio: 50},
+//                   {  id: 4,  producto: "Flan" , precio: 100}];
+
+// const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor) };
+
+// //Almacenar producto por producto
+// for (const producto of productos) {
+//     guardarLocal(producto.id, JSON.stringify(producto));
+// }
+// // o almacenar array completo
+// guardarLocal("listaProductos", JSON.stringify(productos));
+// const almacenados = JSON.parse(localStorage.getItem("listaProductos"))
+// console.log(almacenados);
+
+// for(let almacenado of almacenados){
+//     almacenado.precio = almacenado.precio * 1.21
+//     console.log(almacenado);
+// }
+
+
+const formulario = document.createElement("form")
+formulario.innerHTML = `<input type = "text" placeholder="Nombre" required> <input type = "text" placeholder ="Apellido" required> <span>Fecha de nacimiento:  </span><input type = "date" required><br><input type = "email" placeholder = "ejemplo@gmail.com" required> <input type = "number" placeholder = "DNI" required><br><br><input type = "submit" id = "sendForm1" value = "Enviar">`
+document.body.appendChild(formulario);
+let objeto;
+let arreglo = []
+formulario.addEventListener("submit", validarFormulario);
+
+function validarFormulario(e){ 
+e.preventDefault();
+const mensaje = document.createElement("p");
+mensaje.textContent = "Usted se registró exitosamente!";
+document.body.appendChild(mensaje);
+let formulario1 = e.target;
+objeto = {Nombre:formulario1.children[0].value,Apellido:formulario1.children[1].value,Nacimiento:formulario1.children[3].value,Email:formulario1.children[5].value,DNI:formulario1.children[6].value};
+arreglo.push(objeto);
+localStorage.setItem("usuarios",JSON.stringify(arreglo));
 }
 
-let comprar = parseInt(prompt("Ahora que estuvo viendo nuestros productos puede acceder a los mismos con el descuentro de nuestro hotsale.\n1-Si quiere acceder al catalogo con los descuestos del hotsale\n2-Sino quiere comprar nada"));
-while (comprar < 1 || comprar > 2){
-    alert("la opcion que usted esta ingresando no existe.")
-    opcionSecundaria = parseInt(prompt("eliga la opcion que desee escribiendo el número de la misma\n1-Si quiere acceder al catalogo con los descuestos del hotsale\n2-Sino quiere comprar nada"))
-}
-if (comprar === 1){
-    const tecladoD1 = new Productos(01254,"HyperX","Alloy Core RGB",4495);
-    const tecladoD2 = new Productos(45641,"HyperX","Alloy FPS Pro Mecanico Eng Switch Red",8490);
-    const tecladoD3 = new Productos(56441,"HyperX","Alloy Elite 2 RBG Red",13799);
 
-    const tecladoD4 = new Productos(46529,"Logitech","G G213 Retroiluminado Multimedia",6790);
-    const tecladoD5 = new Productos(32529,"Logitech","G PRO KDA RGB",11990);
-    const tecladoD6 = new Productos(82129,"Logitech","G 915 RGB lightspeed",23490);
 
-    const tecladoD7 = new Productos(26529,"Corsair","K55 RGB",7990);
-    const tecladoD8 = new Productos(32529,"Corsair","K57 RGB WIRELESS",12990);
-    const tecladoD9 = new Productos(82129,"Corsair","K70 RGB MK.2 Cherry MX-red",19890);
 
-    let tecladoDescuento = [tecladoD1,tecladoD2,tecladoD3,tecladoD4,tecladoD5,tecladoD6,tecladoD7,tecladoD8,tecladoD9]
-    let descuento = tecladoDescuento.map(producto => producto.precio - (producto.precio * 0.25));
-    tecladoDescuento[0]["precio"] = descuento[0];
-    tecladoDescuento[1]["precio"] = descuento[1];
-    tecladoDescuento[2]["precio"] = descuento[2];
-    tecladoDescuento[3]["precio"] = descuento[3];
-    tecladoDescuento[4]["precio"] = descuento[4];
-    tecladoDescuento[5]["precio"] = descuento[5];
-    tecladoDescuento[6]["precio"] = descuento[6];
-    tecladoDescuento[7]["precio"] = descuento[7];
-    tecladoDescuento[8]["precio"] = descuento[8];
-    console.log("Productos con descuento del % 25 del hotsale:")
-    console.log(tecladoDescuento);
-}else{
-    alert("Gracias por visitar nuestra tienda, Vuelva pronto");
-}
+

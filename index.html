@@ -5,11 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="div__inicioSesion">
+    <h1 id="titleIS">GOL</h1>
+    <p><b>Iniciar sesión</b></p>
+    <p>¿Aún no tenés cuenta? <a href="registro.html">Registrarte</a></p>
+    <p>Al iniciar sesión o al registrar la cuenta confirmo que he leído y acepto los términos y condiciones y la política de privacidad.</p>
+    <br><br>
+    <button id="btnF" type="button"><i class="fab fa-facebook-f"></i>Registrarme con Facebook</button><br>
+    <button id="btnG" type="button"><i class="fab fa-google"></i>Registrarme con Google</button>
+    <br><br>
+    <b>o vía correo electrónico</b>
+    <br><br>
+    <input type="email"  id="inputEmail" placeholder="Email *"><br>
+    <input type="password" id="inputPsw" placeholder="Contrasaeña *"><br>
+    <p class="inicioFallido"><i class="fas fa-exclamation-triangle"></i>Correo electrónico o contraseña incorrecta</p><br>
+    <div class="div__recordarOlvide">
+        <input type="checkbox" id="recordar" name="recordar1" value="recordar">
+        <label  class="div__recordarOlvide--label" for="recordar"> Recordar cuenta</label><span>Olvide mi contraseña</span>
+    </div>
+    <br><br>
+    <button id="inicioSesion" type="button">INICIÁ SESIÓN</button>
+    <br>
+    <p class="borderBtm__pregunta">¿Querés acceder a todos nuestros contenidos sin límites? <a>Suscribite</a></p> 
+    <br><br>
+    <b>¿TENES CONSULTAS?</b>
+    <br><br>
+    <p>Ingresá a nuestra sección de preguntas frecuentes O llamanos al <b>0810.555.2869</b> de lunes a viernes de 8 a 17.</b></p>
+</div>     
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>   
 <script src="mi-js.js">
     // Algoritmo, en programación un algoritmo es un conjunto de procedimientos
     // o funciones ordenadas qeu se necesitan para realizar cierta operación o acción.
-</script>   
+</script>
 </body>
 </html>

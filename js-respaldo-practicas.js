@@ -197,3 +197,11 @@ function buscarPerfil(nombre, propiedad) {
 }
 
 console.log(buscarPerfil("Nora", "gustos"));
+
+
+//Creando un objeto pasando desconstructor
+const crearPersona = (nombre, edad, idioma) => ({nombre, edad, idioma});
+
+let yo = crearPersona("Facundo",24,"Español");
+let otro = crearPersona("Juan",26,"Español");
+console.log(yo,otro);

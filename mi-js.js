@@ -817,25 +817,62 @@
 // }
 
 
-const formulario = document.createElement("form")
-formulario.innerHTML = `<input type = "text" placeholder="Nombre" required> <input type = "text" placeholder ="Apellido" required> <span>Fecha de nacimiento:  </span><input type = "date" required><br><input type = "email" placeholder = "ejemplo@gmail.com" required> <input type = "number" placeholder = "DNI" required><br><br><input type = "submit" id = "sendForm1" value = "Enviar">`
-document.body.appendChild(formulario);
-let objeto;
-let arreglo = []
-formulario.addEventListener("submit", validarFormulario);
+// const formulario = document.createElement("form")
+// formulario.innerHTML = `<input type = "text" placeholder="Nombre" required> <input type = "text" placeholder ="Apellido" required> <span>Fecha de nacimiento:  </span><input type = "date" required><br><input type = "email" placeholder = "ejemplo@gmail.com" required> <input type = "number" placeholder = "DNI" required><br><br><input type = "submit" id = "sendForm1" value = "Enviar">`
+// document.body.appendChild(formulario);
+// let objeto;
+// let arreglo = []
+// formulario.addEventListener("submit", validarFormulario);
 
-function validarFormulario(e){ 
-e.preventDefault();
-const mensaje = document.createElement("p");
-mensaje.textContent = "Usted se registró exitosamente!";
-document.body.appendChild(mensaje);
-let formulario1 = e.target;
-objeto = {Nombre:formulario1.children[0].value,Apellido:formulario1.children[1].value,Nacimiento:formulario1.children[3].value,Email:formulario1.children[5].value,DNI:formulario1.children[6].value};
-arreglo.push(objeto);
-localStorage.setItem("usuarios",JSON.stringify(arreglo));
+// function validarFormulario(e){ 
+// e.preventDefault();
+// const mensaje = document.createElement("p");
+// mensaje.textContent = "Usted se registró exitosamente!";
+// document.body.appendChild(mensaje);
+// let formulario1 = e.target;
+// objeto = {Nombre:formulario1.children[0].value,Apellido:formulario1.children[1].value,Nacimiento:formulario1.children[3].value,Email:formulario1.children[5].value,DNI:formulario1.children[6].value};
+// arreglo.push(objeto);
+// localStorage.setItem("usuarios",JSON.stringify(arreglo));
+// }
+
+
+
+
+const listaUsuarios = [{email:"facundo.muoio@gmail.com"},{email:"juan.muoio@gmail.com"}];
+const usuario = {email:"", password:""};
+
+
+$("#inputEmail").change( function (e) {
+    e.preventDefault();
+    usuario.email = this.value;
+    console.log(usuario.email);
+} );
+
+$("#inputPsw").change((e) => {
+    e.preventDefault()
+    let usuarioPassword =  e.target.value;
+    usuario.password = usuarioPassword;
+    console.log(usuario.password);
+} );
+
+$("#inicioSesion").click((e) => {
+    e.preventDefault();
+    let chekin = listaUsuarios.find(usuarios => usuarios.email === usuario.email);
+    comprobar(chekin);
+} );
+
+function comprobar(a){
+    if (a !== undefined){
+        $("#inputEmail, #inputPsw").css({
+            "border": "1px solid green"
+        });
+        $(".inicioFallido").hide();
+    } else{
+        $("#inputEmail, #inputPsw").css({
+            "border": "1px solid red"})
+        $(".inicioFallido").show();
+    }           
 }
 
-
-
-
+console.log(usuario)
 

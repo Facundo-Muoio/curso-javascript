@@ -1,0 +1,147 @@
+body{
+    background-color: black;
+}
+
+body{
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color:#00b4ff;
+    cursor:pointer;
+}
+
+.div__inicioSesion {
+    margin: 120px auto;
+    background-color: white;
+    height: 710;
+    width: 400px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 2px 0px;
+}
+
+#btnF, #btnG{
+    width: 95%;
+    border-radius: 2px;
+    background-color: white;
+    border:1px solid #efefef;
+    height: 36px;
+    padding: 5px;
+    margin: 2px;
+}
+
+.fa-facebook-f{
+    color: darkblue;
+    margin-right: 5px;
+}
+
+.fa-google{
+   color: #4285f4;
+   margin-right: 5px;   
+}
+
+#inputEmail, #inputPsw {
+    width: 95%;
+    border:1px solid #efefef;;
+    padding: 5px;
+    border-radius: 2px;
+    height: 24px;
+    margin: 2px;
+}
+
+#btnF, #btnG:hover {
+    cursor: pointer;
+    border:1px solid #b7c0c025;
+}
+
+#inputEmail, #inputPsw:hover{
+    border:1px solid #b7c0c025;
+}
+
+#inicioSesion {
+    width: 96%;
+    background-color: rgb(25, 23, 200);
+    border-radius: 2px;
+    border-color:rgb(25, 23, 200) ;
+    border: none;
+    color: white;
+    height: 34px;
+    padding: 1px;
+}
+
+#inicioSesion:hover {
+    cursor: pointer;
+}
+
+#titleIS{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color: rgb(25, 23, 200);
+}
+
+.div__recordarOlvide{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2px;
+    margin-top: 5px;
+}
+
+.div__recordarOlvide--label{
+    position: relative;
+    right: 65px;
+}
+
+.borderBtm__pregunta {
+    border-bottom:1px solid #efefef;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-bottom: 40px;
+}
+
+.inicioFallido{
+    color:red;
+    margin:0px;
+    font-size: 12px;
+    text-align: left;
+    display: none;
+}
+
+.fa-exclamation-triangle{
+    color:red;
+    margin-right: 2px;
+    margin-left: 4px;
+    font-size: 12px;
+}
+
+.div__registro{
+    margin: 120px auto;
+    background-color: white;
+    height: 710;
+    width: 400px;
+    text-align: center;
+    border-radius: 4px;
+    padding: 2px 0px;
+}
+
+#registroEmail, #registroPsw{
+    width: 95%;
+    border:1px solid #efefef;;
+    padding: 5px;
+    border-radius: 2px;
+    height: 24px;
+    margin: 2px;
+}
+
+#inputEmail, #inputPsw:hover{
+    border:1px solid #b7c0c025;
+}
+
+.emailFallido{
+    color:red;
+    margin:0px;
+    font-size: 12px;
+    text-align: left;
+    display: none;
+}

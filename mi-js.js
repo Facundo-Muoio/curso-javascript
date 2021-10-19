@@ -836,43 +836,126 @@
 // }
 
 
+//REGISTRO USUARIO
+
+let inicioEmail;
+let inicioPassword;
+let usuarioEmail;
+let usuarioPassword;
+let email;
+let password;
+const usuariosRegistrados = JSON.parse(localStorage.getItem("Usuario Email"));
+let emailValidacion = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9.-]+$/;
+let passwordValidacion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
+
+$("#registroEmail").change((e) => {
+    usuarioEmail = e.target.value;
+    let yaRegistrado = usuariosRegistrados.find(usuario => usuario.email === usuarioEmail)
+    if(yaRegistrado !== undefined){
+        $(".emailNoValido").hide();
+        $(".emailFallido").show();
+        $("#registroEmail").css({
+            "border": "1px solid red"
+        });
+        email = false;
+    }   else {
+        $(".emailFallido").hide();
+        $("#registroEmail").css({
+            "border": "1px solid black"
+        })
+        email = true;
+
+        if(emailValidacion.test(usuarioEmail) === true){
+            $(".emailNoValido").hide();
+            $("#registroEmail").css({
+                "boder": "1px solid black"
+            })
+            email = true;
+        } else {
+            $(".emailNoValido").show();
+            $("#registroEmail").css({
+                "border": "1px solid red"
+            });
+            email = false;
+        }
+    }
+});
 
 
-const listaUsuarios = [{email:"facundo.muoio@gmail.com"},{email:"juan.muoio@gmail.com"}];
-const usuario = {email:"", password:""};
+$("#registroPsw").change((e) => {
+    usuarioPassword = e.target.value;
+    if(passwordValidacion.test(usuarioPassword) === true){
+        $(".pswFallido").hide();
+        $("#registroPsw").css({
+            "border": "1px solid black"
+        })
+        password = true;
+    } else {
+        $(".pswFallido").show();
+        $("#registroPsw").css({
+            "border": "1px solid red"
+        })
+        password = false;
+    }
+});
+
+$("#registrarme").click((e) =>{
+    e.preventDefault();
+    if(email && password === true){
+        $(".registroFallido").hide();
+        usuariosRegistrados.push({email:usuarioEmail, password:usuarioPassword});
+        localStorage.setItem("Usuario Email", JSON.stringify(usuariosRegistrados));
+        $(".modal__container").fadeIn("fast").delay(2000).fadeOut("fast"); 
+    }
+    else{
+        $(".registroFallido").show();
+    }    
+})
+
+
+//INICIO SESION
 
 
 $("#inputEmail").change( function (e) {
     e.preventDefault();
-    usuario.email = this.value;
-    console.log(usuario.email);
+    inicioEmail = e.target.value;
+    console.log(inicioEmail);
 } );
 
 $("#inputPsw").change((e) => {
     e.preventDefault()
-    let usuarioPassword =  e.target.value;
-    usuario.password = usuarioPassword;
-    console.log(usuario.password);
+    inicioPassword =  e.target.value;
+    console.log(inicioPassword);
 } );
 
 $("#inicioSesion").click((e) => {
     e.preventDefault();
-    let chekin = listaUsuarios.find(usuarios => usuarios.email === usuario.email);
-    comprobar(chekin);
+    comprobar();
 } );
 
-function comprobar(a){
-    if (a !== undefined){
-        $("#inputEmail, #inputPsw").css({
-            "border": "1px solid green"
-        });
-        $(".inicioFallido").hide();
-    } else{
-        $("#inputEmail, #inputPsw").css({
+
+function comprobar(){
+    for(user of usuariosRegistrados){
+        if((user.email == inicioEmail) && (user.password == inicioPassword)){
+            $(".inicioFallido").hide();   
+            $("#inputEmail, #inputPsw").css({
+                "border": "1px solid green"
+            })     
+        }   else{
+            $(".inicioFallido").show(); 
+            $("#inputEmail, #inputPsw").css({
             "border": "1px solid red"})
-        $(".inicioFallido").show();
-    }           
+        }
+            
+    }
 }
 
-console.log(usuario)
+
+
+
+
+// ctrl b (sidebar)
+// ctrl l (seleccion line)
+// alt flechitas (mover linea)
+// ctrl | (divide la pantalla)
 

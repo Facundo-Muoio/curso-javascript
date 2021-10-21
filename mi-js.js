@@ -845,6 +845,7 @@ let usuarioPassword;
 let email;
 let password;
 const usuariosRegistrados = JSON.parse(localStorage.getItem("Usuario Email"));
+// const usuariosRegistrados = [{email:"prueba@gmail.com", password:"Coder2020"}];
 let emailValidacion = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9.-]+$/;
 let passwordValidacion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
 
@@ -930,32 +931,36 @@ $("#inputPsw").change((e) => {
 
 $("#inicioSesion").click((e) => {
     e.preventDefault();
-    comprobar();
+    let succes = usuariosRegistrados.find(user => buscar(user))
+    ingreso(succes);
 } );
 
 
-function comprobar(){
-    for(user of usuariosRegistrados){
-        if((user.email == inicioEmail) && (user.password == inicioPassword)){
-            $(".inicioFallido").hide();   
-            $("#inputEmail, #inputPsw").css({
-                "border": "1px solid green"
-            })     
-        }   else{
-            $(".inicioFallido").show(); 
-            $("#inputEmail, #inputPsw").css({
-            "border": "1px solid red"})
-        }
-            
+function buscar(user){
+    if(user.email === inicioEmail && user.password === inicioPassword){
+        return true;
+    } return false;
+}
+
+function ingreso(succes){
+    if(succes !== undefined){
+        $(".inicioFallido").hide();
+        $("#inputEmail , #inputPsw").css({
+            "border": "1px solid green"
+        })
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Usted Inició Sesion correctamente',
+            showConfirmButton: false,
+            timer: 2000
+          })    
+    } else{
+        $(".inicioFallido").show();
+        $("#inputEmail, #inputPsw").css({
+            "border": "1px solid red"
+        })
     }
 }
 
-
-
-
-
-// ctrl b (sidebar)
-// ctrl l (seleccion line)
-// alt flechitas (mover linea)
-// ctrl | (divide la pantalla)
 
